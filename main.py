@@ -40,11 +40,13 @@ def logando():
 def incluir():
     return render_template('incluir_user.html')
 
-@app.route('/incluso')
+
+
+@app.route('/incluso', methods=['GET','POST'])
 def incluindo():
     if request.method == 'POST':
-        nlogin=request.form.get('login')
-        nsenha=request.form.get('senha')
+        nlogin=request.form.get('nlogin')
+        nsenha=request.form.get('nsenha')
 
         cursor = mysql.get_db().cursor()
 
@@ -58,6 +60,14 @@ def incluindo():
     else:
         return render_template('adm_page.html')
 
+@app.route('/excluir_usuario')
+def excluir():
+    return render_template('excluir_user.html')
+
+@app.route('/carros_reservados')
+def reservas():
+    cursor = mysql.get_db().cursor()
+    return render_template('carros_reservados.html',carros=get_carros(cursor))
 
 
 if __name__== '__main__':

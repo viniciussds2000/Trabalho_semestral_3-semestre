@@ -6,19 +6,21 @@
 </head>
 <body>
     <h1>Novo usuario</h1>
-    <p>
-        <label>
-            Login:
-        </label>
-        <input type="text" name="nlogin">
-    </p>
-    <p>
-        <label>
-            Senha:
-        </label>
-        <input type="text" name="nsenha"><br>
+    <form id="nlogin", action="/incluso", method="post">
+        <p>
+            <label>
+                Login:
+            </label>
+            <input type="text" name="nlogin">
+        </p>
+        <p>
+            <label>
+                Senha:
+            </label>
+            <input type="text" name="nsenha"><br>
 
-        <input type="submit" name="add_userbt" value="Adicionar">
-    </p>
+            <input type="submit" name="add_userbt" value="Adicionar">
+        </p>
+    </form>
 </body>
 </html>

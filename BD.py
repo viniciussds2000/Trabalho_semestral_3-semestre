@@ -10,6 +10,20 @@ def validar_login(cursor,login,senha):
 
 
 def incluir_user(cursor,login,senha):
-    cursor.execute(f'INSERT into usuarios (login,senha) VALUES ({login},{senha}')
+    cursor.execute(f'INSERT into semestral3.usuarios (usuario,senha) VALUES ("{login}","{senha}")')
 
-    cursor.commit()
+
+    nlogin= cursor.fetchone()
+
+    cursor.close()
+
+    return nlogin
+def get_carros(cursor):
+    # Executar o SQL
+    cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.câmbio FROM carros')
+
+    # Recuperando o retorno do BD
+    carros = cursor.fetchall()
+
+    # Retornar os dados
+    return carros
