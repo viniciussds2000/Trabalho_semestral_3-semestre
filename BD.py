@@ -1,5 +1,5 @@
 def validar_login(cursor,login,senha):
-    cursor.execute(f'select id from usuarios WHERE usuario = "{login} " and senha = "{senha}"')
+    cursor.execute(f'select id from usuarios WHERE usuario = "{login}" and senha = "{senha}"')
 
     idlogin= cursor.fetchone()
 
@@ -18,7 +18,18 @@ def incluir_user(cursor,login,senha):
     cursor.close()
 
     return nlogin
+
+def incluir_anuncio(cursor,nome,marca,ano,cor,cambio):
+    cursor.execute(f'INSERT into semestral3.anuncios (nome,marca,ano,cor,cambio) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}")')
+
+    nanuncio= cursor.fetchone()
+
+    cursor.close()
+
+    return nanuncio
+
 def get_carros(cursor):
+
     # Executar o SQL
     cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.câmbio FROM carros')
 

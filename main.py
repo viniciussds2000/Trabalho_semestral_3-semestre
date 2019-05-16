@@ -56,9 +56,19 @@ def incluindo():
             return render_template('Incluir_user.html')
 
         else:
-            return render_template("incluir_user.html")
+            return render_template("incluso.html")
     else:
         return render_template('adm_page.html')
+
+
+@app.route('/incluir_anuncio')
+def Incluir_anuncio():
+    return render_template('incluir_anuncio.html')
+
+@app.route('/excluir_anuncio')
+def excluir_anuncio():
+    return render_template('excluir_anuncio.html')
+
 
 @app.route('/excluir_usuario')
 def excluir():
@@ -66,7 +76,7 @@ def excluir():
 
 @app.route('/carros_reservados')
 def reservas():
-    cursor = mysql.get_db().cursor()
+    cursor = mysql.get_db().cursor(                  )
     return render_template('carros_reservados.html',carros=get_carros(cursor))
 
 
