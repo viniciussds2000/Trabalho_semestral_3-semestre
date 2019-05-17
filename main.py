@@ -9,7 +9,7 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'semestral3'
 
 @app.route('/')
@@ -60,6 +60,27 @@ def incluindo():
     else:
         return render_template('adm_page.html')
 
+@app.route('/excluir_usuario')
+def excluir():
+    return render_template('excluir_user.html')
+
+@app.route('/excluido', methods=['GET','POST'])
+def excluindo():
+    if request.method == 'POST':
+        slogin=request.form.get('slogin')
+        ssenha=request.form.get('ssenha')
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        excluir_user(cursor,conn,slogin,ssenha)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluso.html')
+    else:
+        return render_template('adm_page.html')
 
 @app.route('/incluir_anuncio')
 def Incluir_anuncio():
@@ -69,10 +90,6 @@ def Incluir_anuncio():
 def excluir_anuncio():
     return render_template('excluir_anuncio.html')
 
-
-@app.route('/excluir_usuario')
-def excluir():
-    return render_template('excluir_user.html')
 
 @app.route('/carros_reservados')
 def reservas():

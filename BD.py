@@ -13,6 +13,10 @@ def incluir_user(cursor,conn,login,senha):
     cursor.execute(f'INSERT into semestral3.usuarios (usuario,senha) VALUES ("{login}","{senha}")')
     conn.commit()
 
+def excluir_user(cursor,conn,login,senha):
+    cursor.execute(f'DELETE FROM `semestral3`.`usuarios` WHERE usuario = "{login}" and senha = "{senha}"')
+    conn.commit()
+
 def incluir_anuncio(cursor,nome,marca,ano,cor,cambio):
     cursor.execute(f'INSERT into semestral3.anuncios (nome,marca,ano,cor,cambio) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}")')
 
