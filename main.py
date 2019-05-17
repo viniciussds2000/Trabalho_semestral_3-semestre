@@ -84,7 +84,31 @@ def excluindo():
 
 @app.route('/incluir_anuncio')
 def Incluir_anuncio():
-    return render_template('incluir_anuncio.html')
+    cursor = mysql.get_db().cursor()
+    return render_template('incluir_anuncio.html',carros=get_carros(cursor))
+
+@app.route('/anuncio_incluso', methods=['GET','POST'])
+def incluindo_anuncio():
+    if request.method == 'POST':
+        nomecar=request.form.get('nomecar')
+        marcacar=request.form.get('marcacar')
+        anocar=request.form.get('anocar')
+        corcar=request.form.get('corcar')
+        cambiocar=request.form.get('cambiocar')
+        preçocar=request.form.get('preçocar')
+
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,cambiocar,preçocar)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluir_anuncio.html')
+    else:
+        return render_template('adm_page.html')
 
 @app.route('/excluir_anuncio')
 def excluir_anuncio():
@@ -93,7 +117,7 @@ def excluir_anuncio():
 
 @app.route('/carros_reservados')
 def reservas():
-    cursor = mysql.get_db().cursor(                  )
+    cursor = mysql.get_db().cursor()
     return render_template('carros_reservados.html',carros=get_carros(cursor))
 
 

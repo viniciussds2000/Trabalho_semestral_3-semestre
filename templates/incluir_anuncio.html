@@ -5,21 +5,67 @@
     <title>Incluindo Anuncio</title>
 </head>
 <body>
+    <h1>Carros disponiveis</h1>
+        <table border="1">
+    <tr>
+            <td>Nome</td>
+            <td>Marca</td>
+            <td>Ano </td>
+            <td>Cor</td>
+            <td>Câmbio</td>
+            <td>Preço</td>
+
+            </tr>
+        {% for car in carros %}
+            <tr>
+                <td>{{car[0]}}</td>
+                <td>{{car[1]}}</td>
+                <td>{{car[2]}}</td>
+                <td>{{car[3]}}</td>
+                <td>{{car[4]}}</td>
+                <td>{{car[5]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
     <h1>Novo Anuncio</h1>
-    <form id="nlogin", action="/incluso", method="post">
+    <form id="inclur_car", action="/anuncio_incluso", method="post">
         <p>
             <label>
-                Login:
+                Nome:
             </label>
-            <input type="text" name="nlogin">
+            <input type="text" name="nomecar">
+        </p>
+         <p>
+            <label>
+                Marca:
+            </label>
+            <input type="text" name="marcacar">
+        </p>
+         <p>
+            <label>
+                Ano:
+            </label>
+            <input type="text" name="anocar">
+        </p>
+         <p>
+            <label>
+                Cor:
+            </label>
+            <input type="text" name="corcar">
+        </p>
+         <p>
+            <label>
+                Câmbio:
+            </label>
+            <input type="text" name="cambiocar">
         </p>
         <p>
             <label>
-                Senha:
+                Preço:
             </label>
-            <input type="password" name="nsenha"><br>
+            <input type="text" name="preçocar"><br>
 
-            <input type="submit" name="add_userbt" value="Adicionar">
+            <input type="submit" name="add_carbt" value="Adicionar">
         </p>
     </form>
 </body>

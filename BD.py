@@ -17,19 +17,14 @@ def excluir_user(cursor,conn,login,senha):
     cursor.execute(f'DELETE FROM `semestral3`.`usuarios` WHERE usuario = "{login}" and senha = "{senha}"')
     conn.commit()
 
-def incluir_anuncio(cursor,nome,marca,ano,cor,cambio):
-    cursor.execute(f'INSERT into semestral3.anuncios (nome,marca,ano,cor,cambio) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}")')
-
-    nanuncio= cursor.fetchone()
-
-    cursor.close()
-
-    return nanuncio
+def incluir_anuncio(cursor,conn,nome,marca,ano,cor,cambio,preço):
+    cursor.execute(f'INSERT into semestral3.carros (nome,marca,ano,cor,cambio,preço) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}","{preço}")')
+    conn.commit()
 
 def get_carros(cursor):
 
     # Executar o SQL
-    cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.cambio FROM carros')
+    cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.cambio,carros.preço FROM carros')
 
     # Recuperando o retorno do BD
     carros = cursor.fetchall()
