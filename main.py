@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect,url_for
 from flaskext.mysql import MySQL
 from BD import *
 
@@ -9,7 +9,7 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'semestral3'
 
 @app.route('/')
@@ -48,15 +48,15 @@ def incluindo():
         nlogin=request.form.get('nlogin')
         nsenha=request.form.get('nsenha')
 
-        cursor = mysql.get_db().cursor()
+        conn = mysql.connect()
+        cursor = conn.cursor()
 
-        nuser= incluir_user(cursor,nlogin,nsenha)
+        incluir_user(cursor,conn,nlogin,nsenha)
 
-        if nuser is None:
-            return render_template('Incluir_user.html')
+        cursor.close()
+        conn.close()
 
-        else:
-            return render_template("incluso.html")
+        return render_template('incluso.html')
     else:
         return render_template('adm_page.html')
 

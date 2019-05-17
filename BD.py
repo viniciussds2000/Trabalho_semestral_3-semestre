@@ -9,15 +9,9 @@ def validar_login(cursor,login,senha):
     return idlogin
 
 
-def incluir_user(cursor,login,senha):
+def incluir_user(cursor,conn,login,senha):
     cursor.execute(f'INSERT into semestral3.usuarios (usuario,senha) VALUES ("{login}","{senha}")')
-
-
-    nlogin= cursor.fetchone()
-
-    cursor.close()
-
-    return nlogin
+    conn.commit()
 
 def incluir_anuncio(cursor,nome,marca,ano,cor,cambio):
     cursor.execute(f'INSERT into semestral3.anuncios (nome,marca,ano,cor,cambio) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}")')
@@ -31,7 +25,7 @@ def incluir_anuncio(cursor,nome,marca,ano,cor,cambio):
 def get_carros(cursor):
 
     # Executar o SQL
-    cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.câmbio FROM carros')
+    cursor.execute('SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.cambio FROM carros')
 
     # Recuperando o retorno do BD
     carros = cursor.fetchall()
