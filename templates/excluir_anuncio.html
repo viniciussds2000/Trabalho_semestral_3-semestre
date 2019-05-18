@@ -5,22 +5,40 @@
     <title>Excluir Anuncio</title>
 </head>
 <body>
-    <h1>Excluir usuario</h1>
-    <form id="slogin", action="/retirado", method="post">
-        <p>
-            <label>
-                Login:
-            </label>
-            <input type="text" name="slogin">
-        </p>
-        <p>
-            <label>
-                Senha:
-            </label>
-            <input type="password" name="ssenha"><br>
+    <h1>Excluir carro</h1>
+        <table border="1">
+    <tr>
+            <td>Nome</td>
+            <td>Marca</td>
+            <td>Ano </td>
+            <td>Cor</td>
+            <td>Câmbio</td>
+            <td>Preço</td>
+            <td>Placa</td>
 
-            <input type="submit" name="ex_userbt" value="Excluir">
-        </p>
+            </tr>
+        {% for car in carros %}
+            <tr>
+                <td>{{car[0]}}</td>
+                <td>{{car[1]}}</td>
+                <td>{{car[2]}}</td>
+                <td>{{car[3]}}</td>
+                <td>{{car[4]}}</td>
+                <td>{{car[5]}}</td>
+                <td>{{car[6]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form id="excluirtb", action="/anuncio_excluido", method="post">
+        <p>
+            <label>
+                Placa do carro
+            </label>
+            <input type="text" name="placacar">
+
+            <input type="submit" name="ex_anunciobt" value="Excluir">
+         </p>
     </form>
 </body>
 </html>

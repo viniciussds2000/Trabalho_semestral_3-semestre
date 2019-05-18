@@ -14,6 +14,7 @@
             <td>Cor</td>
             <td>Câmbio</td>
             <td>Preço</td>
+            <td>Placa</td>
 
             </tr>
         {% for car in carros %}
@@ -24,6 +25,7 @@
                 <td>{{car[3]}}</td>
                 <td>{{car[4]}}</td>
                 <td>{{car[5]}}</td>
+                <td>{{car[6]}}</td>
             </tr>
         {% endfor %}
     </table>
@@ -64,6 +66,12 @@
                 Preço:
             </label>
             <input type="text" name="preçocar"><br>
+        <p>
+            <label>
+                Placa:
+            </label>
+            <input type="text" name="placacar">
+        </p>
 
             <input type="submit" name="add_carbt" value="Adicionar">
         </p>

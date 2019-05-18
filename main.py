@@ -9,12 +9,13 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'semestral3'
 
 @app.route('/')
 def home():
-    return render_template("home.html")
+    cursor = mysql.get_db().cursor()
+    return render_template("home.html",carros=get_carros(cursor))
 
 @app.route('/adm_page',methods=['GET','POST'])
 def logando():
@@ -62,7 +63,7 @@ def incluindo():
 
 @app.route('/excluir_usuario')
 def excluir():
-    return render_template('excluir_user.html')
+    return render_template('excluir_user.html',)
 
 @app.route('/excluido', methods=['GET','POST'])
 def excluindo():
@@ -90,29 +91,48 @@ def Incluir_anuncio():
 @app.route('/anuncio_incluso', methods=['GET','POST'])
 def incluindo_anuncio():
     if request.method == 'POST':
-        nomecar=request.form.get('nomecar')
-        marcacar=request.form.get('marcacar')
-        anocar=request.form.get('anocar')
-        corcar=request.form.get('corcar')
-        cambiocar=request.form.get('cambiocar')
-        preçocar=request.form.get('preçocar')
+        nomecarro=request.form.get('nomecar')
+        marcacarro=request.form.get('marcacar')
+        anocarro=request.form.get('anocar')
+        corcarro=request.form.get('corcar')
+        cambiocarro=request.form.get('cambiocar')
+        preçocarro=request.form.get('preçocar')
+        placacarro=request.form.get('placacar')
 
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        incluir_anuncio(cursor,conn,nomecar,marcacar,anocar,corcar,cambiocar,preçocar)
+        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,cambiocarro,preçocarro,placacarro)
 
         cursor.close()
         conn.close()
 
-        return render_template('incluir_anuncio.html')
+        return render_template('incluso.html')
     else:
         return render_template('adm_page.html')
 
 @app.route('/excluir_anuncio')
-def excluir_anuncio():
-    return render_template('excluir_anuncio.html')
+def ex_anuncio():
+    cursor=mysql.get_db().cursor()
+    return render_template('excluir_anuncio.html',carros=get_carros(cursor))
+
+@app.route('/anuncio_excluido', methods=['GET','POST'])
+def excluindo_anuncio():
+    if request.method == 'POST':
+        placacar = request.form.get('placacar')
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        excluir_anuncio(cursor,conn,placacar)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluso.html')
+    else:
+        return render_template('adm_page.html')
 
 
 @app.route('/carros_reservados')
