@@ -1,5 +1,6 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,send_file
 from flaskext.mysql import MySQL
+from werkzeug.utils import secure_filename
 from BD import *
 
 app = Flask(__name__)
@@ -98,19 +99,23 @@ def incluindo_anuncio():
         cambiocarro=request.form.get('cambiocar')
         preçocarro=request.form.get('preçocar')
         placacarro=request.form.get('placacar')
-
+        arquivo = request.files['file']
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
+        adicionar_imagem(cursor,conn,arquivo)
         incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,cambiocarro,preçocarro,placacarro)
 
         cursor.close()
         conn.close()
 
+
+
         return render_template('incluso.html')
     else:
         return render_template('adm_page.html')
+
 
 @app.route('/excluir_anuncio')
 def ex_anuncio():
@@ -139,6 +144,8 @@ def excluindo_anuncio():
 def reservas():
     cursor = mysql.get_db().cursor()
     return render_template('carros_reservados.html',carros=get_carros(cursor))
+
+
 
 
 if __name__== '__main__':

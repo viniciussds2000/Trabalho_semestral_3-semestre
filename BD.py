@@ -35,3 +35,11 @@ def get_carros(cursor):
 
     # Retornar os dados
     return carros
+
+def adicionar_imagem(cursor,conn,data):
+    cursor.execute(f'INSERT INTO data VALUES LOAD_FILE("{data}"))')
+    conn.commit
+
+
+
+

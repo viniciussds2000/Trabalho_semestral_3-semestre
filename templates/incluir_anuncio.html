@@ -30,7 +30,7 @@
         {% endfor %}
     </table>
     <h1>Novo Anuncio</h1>
-    <form id="inclur_car", action="/anuncio_incluso", method="post">
+    <form id="inclur_car", action="/anuncio_incluso", method="post" enctype=multipart/form-data>
         <p>
             <label>
                 Nome:
@@ -65,12 +65,16 @@
             <label>
                 Preço:
             </label>
-            <input type="text" name="preçocar"><br>
+            <input type="text" name="preçocar" value="R$"><br>
         <p>
             <label>
                 Placa:
             </label>
             <input type="text" name="placacar">
+        <p>
+             Nome da imagem: <input type="text" name="titulo"><br/>
+            <input type=file name=file>
+        </p>
         </p>
 
             <input type="submit" name="add_carbt" value="Adicionar">
