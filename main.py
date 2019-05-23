@@ -80,6 +80,7 @@ def excluindo():
         cursor.close()
         conn.close()
 
+
         return render_template('incluso.html')
     else:
         return render_template('adm_page.html')

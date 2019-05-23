@@ -3,6 +3,7 @@ def validar_login(cursor,login,senha):
 
     idlogin= cursor.fetchone()
 
+
     cursor.close()
 
 
