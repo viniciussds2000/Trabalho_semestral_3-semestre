@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da pesquisa</title>
+</head>
+<body>
+     <table border="1">
+        <tr>
+                <td>Nome</td>
+                <td>Marca</td>
+                <td>Ano </td>
+                <td>Cor</td>
+                <td>Câmbio</td>
+                <td>Preço</td>
+                <td>Placa</td>
+
+                </tr>
+            {% for result in consulta %}
+                <tr>
+                    <td>{{result[0]}}</td>
+                    <td>{{result[1]}}</td>
+                    <td>{{result[2]}}</td>
+                    <td>{{result[3]}}</td>
+                    <td>{{result[4]}}</td>
+                    <td>{{result[5]}}</td>
+                    <td>{{result[6]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

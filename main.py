@@ -10,13 +10,28 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'semestral3'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = 'semestral3.'
 
 @app.route('/')
 def home():
     cursor = mysql.get_db().cursor()
+
     return render_template("home.html",carros=get_carros(cursor))
+
+@app.route('/resultado', methods=['GET','POST'])
+def resultados():
+    if request.method == 'POST':
+        pesquisa = request.form.get('campo_pesquisa')
+        cursor = mysql.get_db().cursor()
+        teste_busca= busca(cursor,pesquisa)
+        if teste_busca is None:
+            return render_template('home.html')
+        else:
+            cursor = mysql.get_db().cursor()
+            return render_template('buscando.html',consulta=busca(cursor,pesquisa))
+
+    return
 
 @app.route('/adm_page',methods=['GET','POST'])
 def logando():
@@ -100,12 +115,12 @@ def incluindo_anuncio():
         cambiocarro=request.form.get('cambiocar')
         preçocarro=request.form.get('preçocar')
         placacarro=request.form.get('placacar')
-        arquivo = request.files['file']
+        #arquivo = request.files['file']
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        adicionar_imagem(cursor,conn,arquivo)
+        #adicionar_imagem(cursor,conn,arquivo)
         incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,cambiocarro,preçocarro,placacarro)
 
         cursor.close()
