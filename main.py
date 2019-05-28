@@ -17,7 +17,7 @@ app.config['MYSQL_DATABASE_DB'] = 'semestral3.'
 def home():
     cursor = mysql.get_db().cursor()
 
-    return render_template("home.html",carros=get_carros(cursor))
+    return render_template("home.html",carros=get_top10(cursor))
 
 @app.route('/resultado', methods=['GET','POST'])
 def resultados():
@@ -115,13 +115,18 @@ def incluindo_anuncio():
         cambiocarro=request.form.get('cambiocar')
         preçocarro=request.form.get('preçocar')
         placacarro=request.form.get('placacar')
+        top10 = request.form.get('top_choice')
+        if top10 == "Sim":
+            top10=1
+        else:
+            top10=0
         #arquivo = request.files['file']
 
         conn = mysql.connect()
         cursor = conn.cursor()
 
         #adicionar_imagem(cursor,conn,arquivo)
-        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,cambiocarro,preçocarro,placacarro)
+        incluir_anuncio(cursor,conn,nomecarro,marcacarro,anocarro,corcarro,cambiocarro,preçocarro,placacarro,top10)
 
         cursor.close()
         conn.close()
@@ -154,6 +159,37 @@ def excluindo_anuncio():
         return render_template('incluso.html')
     else:
         return render_template('adm_page.html')
+
+@app.route('/edit_top10')
+def editar_top10():
+    cursor = mysql.get_db().cursor()
+    return render_template('edit_top10.html',carros=get_carros(cursor))
+
+@app.route('/top10_editado', methods=['GET','POST'])
+def top_editado():
+    if request.method == 'POST':
+        eplaca=request.form.get('ePlaca')
+        etop= request.form.get('eTop10')
+        if etop == "Sim":
+            top10 = 1
+        else:
+            top10 = 0
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        print(top10)
+
+        edit_top10(cursor,conn,top10,eplaca)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluso.html')
+    else:
+        return render_template('adm_page.html')
+
+
+
 
 
 @app.route('/carros_reservados')

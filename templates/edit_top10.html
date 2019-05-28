@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar TOP10</title>
+</head>
+<body>
+<h1>Carros Reservados</h1>
+    <table border="1">
+    <tr>
+            <td>Nome</td>
+            <td>Marca</td>
+            <td>Ano </td>
+            <td>Cor</td>
+
+            <td>Câmbio</td>
+            <td>Preço</td>
+            <td>Placa</td>
+            <td>Top 10? 0=Não/1=Sim</td>
+
+            </tr>
+        {% for car in carros %}
+            <tr>
+                <td>{{car[0]}}</td>
+                <td>{{car[1]}}</td>
+                <td>{{car[2]}}</td>
+                <td>{{car[3]}}</td>
+                <td>{{car[4]}}</td>
+                <td>{{car[5]}}</td>
+                <td>{{car[6]}}</td>
+                <td>{{car[7]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/top10_editado" METHOD="post">
+        <h1>Editar lista de mais vendidos</h1>
+        <label>Placa do carro</label>
+        <input type="text" name="ePlaca">
+
+        <label>Top10? :</label>
+        <select name="eTop10">
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+
+        <input type="submit" name="edit_topbt">
+    </form>
+</body>
+</html>
