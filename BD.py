@@ -58,10 +58,9 @@ def edit_top10(cursor,conn,top,placa):
     conn.commit()
 
 
-
 def adicionar_imagem(cursor,conn,data):
     cursor.execute(f'INSERT INTO data VALUES LOAD_FILE("{data}"))')
-    conn.commit
+    conn.commit()
 
 
 

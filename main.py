@@ -19,6 +19,13 @@ def home():
 
     return render_template("home.html",carros=get_top10(cursor))
 
+@app.route('/detalhes')
+def detalhes_carro():
+    cursor= mysql.get_db().cursor()
+    return render_template('detalhes.html', carros=get_carros(cursor))
+
+
+
 @app.route('/resultado', methods=['GET','POST'])
 def resultados():
     if request.method == 'POST':
