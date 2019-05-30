@@ -7,7 +7,7 @@ from BD import *
 
 app = Flask(__name__)
 
-UP_FOLDER = 'imagens\\carros'
+UP_FOLDER = 'C:\\Users\\vinny\\PycharmProjects\\untitled\\imagens\\carros'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 mysql = MySQL()
 
@@ -163,7 +163,7 @@ def incluindo_anuncio():
 
             # adicionar_imagem(cursor,conn,arquivo)
             incluir_anuncio(cursor, conn, nomecarro, marcacarro, anocarro, corcarro, cambiocarro, preçocarro,
-                            placacarro, top10,escaped_file_location)
+                            placacarro, top10, filename)
 
             cursor.close()
             conn.close()
