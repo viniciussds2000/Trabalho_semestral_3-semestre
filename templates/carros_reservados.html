@@ -12,12 +12,12 @@
             <td>Marca</td>
             <td>Ano </td>
             <td>Cor</td>
-
             <td>Câmbio</td>
             <td>Preço</td>
             <td>Placa</td>
 
             </tr>
+
         {% for car in carros %}
             <tr>
                 <td>{{car[0]}}</td>
@@ -27,6 +27,11 @@
                 <td>{{car[4]}}</td>
                 <td>{{car[5]}}</td>
                 <td>{{car[6]}}</td>
+                <td>
+                    <a href="{{ base_url }}{{ car[10]}}">
+                        <img src={{ base_url }}{{ car[10]}} height="200" width="200">
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
