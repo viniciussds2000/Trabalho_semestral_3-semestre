@@ -6,37 +6,55 @@
     <title>Carros Reservados</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 
+
 </head>
-<body>
-<h1>Carros Reservados</h1>
-    <table border="1">
-    <tr>
-            <td>Nome</td>
-            <td>Marca</td>
-            <td>Ano </td>
-            <td>Cor</td>
-            <td>Câmbio</td>
-            <td>Preço</td>
-            <td>Placa</td>
-
-            </tr>
-
-        {% for car in carros %}
-            <tr>
-                <td>{{car[1]}}</td>
-                <td>{{car[2]}}</td>
-                <td>{{car[3]}}</td>
-                <td>{{car[4]}}</td>
-                <td>{{car[5]}}</td>
-                <td>{{car[6]}}</td>
-                <td>{{car[7]}}</td>
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
+        <tr>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
                 <td>
-                    <a href="{{ base_url }}{{ car[10]}}">
-                        <img src={{ base_url }}{{ car[10]}} height="200" width="200">
-                    </a>
+                    <h1>Pagina do Administrador</h1>
                 </td>
-            </tr>
-        {% endfor %}
+            </td>
+        </tr>
     </table>
+    </div>
+</header>
+<body>
+    <div id="admcorpo">
+        <h1>Carros Reservados</h1>
+            <table border="1">
+
+
+                {% for car in carros %}
+                    <tr>
+                         <td>
+                            <a href="{{base_url}}{{car[10]}}">
+                                <img src={{ base_url }}{{ car[10]}} height="200" width="200">
+                            </a>
+                        </td>
+                        <td>
+                        <h3>Nome: {{car[1]}}</h3>
+                        <h3>Marca: {{car[2]}}</h3>
+                        <h3>Ano: {{car[3]}}</h3>
+                        <h3>Cor: {{car[4]}}</h3>
+                        <h3>Câmbio: {{car[5]}}</h3>
+                        <h3>Preço: {{car[6]}}</h3>
+                        <h3>Placa: {{car[7]}}</h3>
+                    </td>
+                    </tr>
+                {% endfor %}
+            </table>
+    </div>
 </body>
+<footer>
+    <nav>
+            <h3>Top 10</h3>
+            <h3>Ver todos carros</h3>
+            <small>Copyright © 2010 </small>
+    </nav>
+</footer>
 </html>

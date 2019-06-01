@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Incluindo Anuncio</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
+        <tr>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
+                <td>
+                    <h1>Pagina do Administrador</h1>
+                </td>
+            </td>
+        </tr>
+    </table>
+    </div>
+</header>
 <body>
     <h1>Carros disponiveis</h1>
         <table border="1">
@@ -19,13 +35,13 @@
             </tr>
         {% for car in carros %}
             <tr>
-                <td>{{car[0]}}</td>
                 <td>{{car[1]}}</td>
                 <td>{{car[2]}}</td>
                 <td>{{car[3]}}</td>
                 <td>{{car[4]}}</td>
                 <td>{{car[5]}}</td>
                 <td>{{car[6]}}</td>
+                <td>{{car[7]}}</td>
             </tr>
         {% endfor %}
     </table>

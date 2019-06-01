@@ -7,56 +7,101 @@
 
 <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<header>
-    <div id="blocklog">
-        <form id="login" action="/adm_page", method="post">
-            <p>
-                <label>
-                    Login
-                </label>
-
-                <input type="text" name="login">
-            </p>
-            <p>
-                <label>
-                    Senha
-                </label>
-                <input type="password" name="senha" >
-            </p>
-            <input type="submit" logarbt value="Entrar">
-        </form>
-    </div>
-
-
-
-    <form action="/resultado" METHOD="post">
-        <label>Busca:</label>
-        <input type="text" name="campo_pesquisa">
-        <input type="submit" name="pesquisabt" value="procurar">
-    </form>
-</header>
-<body>
-    <table border="0">
-        <h1>Top carros mais vendidos</h1>
-        {% for car in carros %}
-            <tr>
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
+        <tr>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
                 <td>
-
-                    <a href="/detalhes/{{car[1]}}/{{car[7]}}">
-                        <img src={{ base_url }}{{ car[10]}} height="350" width="450">
-                    </a>
+                    <form action="/resultado" METHOD="post">
+                    <label>Busca:</label>
+                    <input type="text" name="campo_pesquisa">
+                    <input type="submit" name="pesquisabt" value="procurar">
+                    </form>
                 </td>
                 <td>
 
-                <h2>Nome: {{car[1]}}</h2>
-                <h2>Marca: {{car[2]}}</h2>
-                <h2>Ano: {{car[3]}}</h2>
-                <h2>Cor: {{car[4]}}</h2>
-                <h2>Câmbio: {{car[5]}}</h2>
-                <h2>Preço: {{car[6]}}</h2>
-                <h2>Placa: {{car[7]}}</h2>
+                    <div id="blocklog">
+                        <form id="login" action="/adm_page", method="post">
+                            <p>
+                                <label>
+                                    Login
+                                </label>
+
+                                <input type="text" name="login">
+                            </p>
+                            <p>
+                                <label>
+                                    Senha
+                                </label>
+                                <input type="password" name="senha" >
+                            </p>
+                            <input type="submit" logarbt value="Entrar">
+                        </form>
+                    </div>
+                </td>
+
+
+
+
+
+
             </td>
-            </tr>
-        {% endfor %}
+        </tr>
+    </table>
+    </div>
+</header>
+<body>
+    <div id="Hometop">
+        <table class="center">
+            <h1>Top carros mais vendidos</h1>
+                {% for car in carros %}
+                <tr>
+                    <td>
+                        <a href="/detalhes/{{car[1]}}/{{car[7]}}">
+                            <img src={{ base_url }}{{ car[10]}} height="350" width="450">
+                        </a>
+                    </td>
+
+                    <td>
+                        <h2>Nome: {{car[1]}}</h2>
+                        <h2>Marca: {{car[2]}}</h2>
+                        <h2>Ano: {{car[3]}}</h2>
+                        <h2>Cor: {{car[4]}}</h2>
+                        <h2>Câmbio: {{car[5]}}</h2>
+                        <h2>Preço: {{car[6]}}</h2>
+                        <h2>Placa: {{car[7]}}</h2>
+                    </td>
+                </tr>
+
+             <tr>
+                    <td>
+                        <h2>Nome: {{car[1]}}</h2>
+                        <h2>Marca: {{car[2]}}</h2>
+                        <h2>Ano: {{car[3]}}</h2>
+                        <h2>Cor: {{car[4]}}</h2>
+                        <h2>Câmbio: {{car[5]}}</h2>
+                        <h2>Preço: {{car[6]}}</h2>
+                        <h2>Placa: {{car[7]}}</h2>
+                    </td>
+                 <td>
+                        <a href="/detalhes/{{car[1]}}/{{car[7]}}">
+                            <img src={{ base_url }}{{ car[10]}} height="350" width="450">
+                        </a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
 </body>
+<footer>
+    <nav>
+            <h3>Top 10</h3>
+            <h3>Ver todos carros</h3>
+            <small>Copyright © 2010 </small>
+    </nav>
+</footer>
 </html>

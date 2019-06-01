@@ -3,7 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Reservar</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
+        <tr>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
+                <td>
+                    <form action="/resultado" METHOD="post">
+                    <label>Busca:</label>
+                    <input type="text" name="campo_pesquisa">
+                    <input type="submit" name="pesquisabt" value="procurar">
+                    </form>
+                </td>
+                <td>
+
+                    <div id="blocklog">
+                        <form id="login" action="/adm_page", method="post">
+                            <p>
+                                <label>
+                                    Login
+                                </label>
+
+                                <input type="text" name="login">
+                            </p>
+                            <p>
+                                <label>
+                                    Senha
+                                </label>
+                                <input type="password" name="senha" >
+                            </p>
+                            <input type="submit" logarbt value="Entrar">
+                        </form>
+                    </div>
+                </td>
+
+
+
+
+
+
+            </td>
+        </tr>
+    </table>
+    </div>
+</header>
 <body>
     {% for det in detalhes%}
     <form method="post" action="/reservado/{{det[1]}}/{{det[7]}}">

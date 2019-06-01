@@ -24,6 +24,8 @@ def home():
 
     return render_template("home.html",carros=get_top10(cursor),base_url='http://127.0.0.1:5000/upload/')
 
+
+
 @app.route('/detalhes/<carro>/<placa>', methods=['GET','POST'])
 def detalhes_carro(carro,placa):
     cursor= mysql.get_db().cursor()
@@ -69,7 +71,7 @@ def resultados():
             return render_template('home.html')
         else:
             cursor = mysql.get_db().cursor()
-            return render_template('buscando.html',consulta=busca(cursor,pesquisa))
+            return render_template('buscando.html',consulta=busca(cursor,pesquisa),base_url='http://127.0.0.1:5000/upload/')
 
     return
 

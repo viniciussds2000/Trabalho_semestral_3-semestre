@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina ADM</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
+        <tr>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
+                <td>
+                    <h1>Pagina do Administrador</h1>
+                </td>
+            </td>
+        </tr>
+    </table>
+    </div>
+</header>
 <body>
-    <h1>
-        Pagina do Administrador
-    </h1>
-    <a href="/carros_reservados">Ver carros reservados</a><br>
-    <a href="/incluir_usuario">Incluir usuarios</a><br>
-    <a href="/excluir_usuario">Excluir usuarios</a><br>
-    <a href="/incluir_anuncio">Incluir anuncios</a><br>
-    <a href="/excluir_anuncio">Excluir anuncios</a><br>
-    <a href="/edit_top10">Editar Top10</a>
+    <div id="admcorpo">
+        <a href="/carros_reservados">Ver carros reservados</a><br>
+        <a href="/incluir_usuario">Incluir usuarios</a><br>
+        <a href="/excluir_usuario">Excluir usuarios</a><br>
+        <a href="/incluir_anuncio">Incluir anuncios</a><br>
+        <a href="/excluir_anuncio">Excluir anuncios</a><br>
+        <a href="/edit_top10">Editar Top10</a><br><br><br>
+
+        <form action="/"><input type="submit" value="Voltar para a Pagina inicial"></form>
+    </div>
 </body>
 
 </html>

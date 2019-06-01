@@ -3,30 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Resultado da pesquisa</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<body>
-     <table border="1">
+<header id="cabecalho">
+    <div id="cab">
+    <table id="tabcab" >
         <tr>
-                <td>Nome</td>
-                <td>Marca</td>
-                <td>Ano </td>
-                <td>Cor</td>
-                <td>Câmbio</td>
-                <td>Preço</td>
-                <td>Placa</td>
+            <td>
+                <h1>TanqueOnly</h1>
+            </td>
+                <td>
+                    <form action="/resultado" METHOD="post">
+                    <label>Busca:</label>
+                    <input type="text" name="campo_pesquisa">
+                    <input type="submit" name="pesquisabt" value="procurar">
+                    </form>
+                </td>
+                <td>
 
-                </tr>
+                    <div id="blocklog">
+                        <form id="login" action="/adm_page", method="post">
+                            <p>
+                                <label>
+                                    Login
+                                </label>
+
+                                <input type="text" name="login">
+                            </p>
+                            <p>
+                                <label>
+                                    Senha
+                                </label>
+                                <input type="password" name="senha" >
+                            </p>
+                            <input type="submit" logarbt value="Entrar">
+                        </form>
+                    </div>
+                </td>
+
+
+
+
+
+
+            </td>
+        </tr>
+    </table>
+    </div>
+</header>
+<body>
+     <table align="center">
             {% for result in consulta %}
                 <tr>
-                    <td>{{result[0]}}</td>
-                    <td>{{result[1]}}</td>
-                    <td>{{result[2]}}</td>
-                    <td>{{result[3]}}</td>
-                    <td>{{result[4]}}</td>
-                    <td>{{result[5]}}</td>
-                    <td>{{result[6]}}</td>
+                    <td>
+                        <a href="/detalhes/{{result[1]}}/{{result[7]}}">
+                            <img src={{base_url}}{{result[10]}} height="300" width="450">
+                        </a>
+                    </td>
+                   <td>
+                        <h2>Nome: {{result[1]}}</h2>
+                        <h2>Marca: {{result[2]}}</h2>
+                        <h2>Ano: {{result[3]}}</h2>
+                        <h2>Cor: {{result[4]}}</h2>
+                        <h2>Câmbio: {{result[5]}}</h2>
+                        <h2>Preço: {{result[6]}}</h2>
+                        <h2>Placa: {{result[7]}}</h2>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
+
 </body>
+<footer>
+    <nav>
+            <h3>Top 10</h3>
+            <h3>Ver todos carros</h3>
+            <small>Copyright © 2010 </small>
+    </nav>
+</footer>
 </html>
