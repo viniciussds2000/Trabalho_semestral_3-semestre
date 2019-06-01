@@ -11,11 +11,24 @@ def validar_login(cursor,login,senha):
 
 def busca(cursor,pesquisa):
     cursor.execute(f'SELECT carros.nome,carros.marca,carros.ano,carros.cor,carros.cambio,carros.preço,carros.placa '
-                   f'from carros WHERE nome = "{pesquisa}"')
+                   f'from carros WHERE nome = "{pesquisa}" AND reserva = "0"')
     pesq = cursor.fetchall()
 
     return pesq
 
+def reservar(cursor,conn,reserva,placa):
+    cursor.execute(f'UPDATE carros SET reserva = "{reserva}" WHERE placa = "{placa}"')
+    conn.commit()
+
+def ad_comprador(cursor, conn,nome,cpf,telefone):
+        cursor.execute(f'INSERT into `semestral3.`.`reservistas` (nome,cpf,telefone) VALUES ("{nome}","{cpf}","{telefone}")')
+        conn.commit()
+
+def get_detalhes(cursor,placa):
+    cursor.execute(f'SELECT * FROM carros WHERE placa = "{placa}"')
+    detalhes= cursor.fetchall()
+
+    return detalhes
 
 def incluir_user(cursor,conn,login,senha):
     cursor.execute(f'INSERT into `semestral3.`.`usuarios` (usuario,senha) VALUES ("{login}","{senha}")')
@@ -29,9 +42,7 @@ def incluir_anuncio(cursor,conn,nome,marca,ano,cor,cambio,preço,placa,top10,dat
     cursor.execute(f'INSERT into `semestral3.`.`carros` (nome,marca,ano,cor,cambio,preço,placa,top10,url) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}","{preço}","{placa}","{top10}","{data}")')
     conn.commit()
 
-'''def adicionar_imagem(cursor,conn,data):
-    cursor.execute(f'INSERT INTO carros (url) VALUES ("{data}")')
-    conn.commit()'''
+
 
 
 def excluir_anuncio(cursor,conn,placa):
@@ -42,7 +53,7 @@ def get_carros(cursor):
 
     # Executar o SQL
     cursor.execute(f'SELECT * '
-                   'FROM carros')
+                   'FROM carros where reserva = "0"')
 
     # Recuperando o retorno do BD
     carros = cursor.fetchall()
@@ -63,8 +74,8 @@ def get_carro_id(cursor,numero_carro):
 
 
 def get_top10(cursor):
-    cursor.execute(f'SELECT carros.id,carros.nome,carros.marca,carros.ano,carros.cor,carros.cambio,carros.preço,carros.placa '
-                   'FROM carros WHERE top10 = "1"')
+    cursor.execute(f'SELECT * '
+                   'FROM carros WHERE top10 = "1" and reserva = "0"')
 
     top10 = cursor.fetchall()
 
@@ -74,7 +85,11 @@ def edit_top10(cursor,conn,top,placa):
     cursor.execute(f'UPDATE carros SET top10 = "{top}" WHERE placa = "{placa}"')
     conn.commit()
 
+def get_carros_reservados(cursor):
+    cursor.execute(f'SELECT * FROM carros WHERE reserva = "1"')
+    carros=cursor.fetchall()
 
+    return carros
 
 
 def call_imagem(cursor,conn,carro):

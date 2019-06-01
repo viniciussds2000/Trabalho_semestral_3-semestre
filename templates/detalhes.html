@@ -5,8 +5,30 @@
     <title>Detalhes</title>
 </head>
 <body>
-Detalhes
+  <table border="1">
+        <h1>Detalhes</h1>
+            {% for detalhe in detalhes %}
+                <tr>
+                     <a href="{{ base_url }}{{ detalhe[10]}}">
+                        <img src={{ base_url }}{{ detalhe[10]}} height="200" width="200">
+                    </a>
+                    <td>{{detalhe[1]}}</td>
+                    <td>{{detalhe[2]}}</td>
+                    <td>{{detalhe[3]}}</td>
+                    <td>{{detalhe[4]}}</td>
+                    <td>{{detalhe[5]}}</td>
+                    <td>{{detalhe[6]}}</td>
+                    <td>{{detalhe[7]}}</td>
+                    <td>
 
+                </td>
+                </tr>
 
+        </table>
+  <form action="/reservando/{{detalhe[1]}}/{{detalhe[7]}}" method="post">
+        <input type="submit", name="reservarbt", value="Reservar">
+
+  </form>
+{% endfor %}
 </body>
 </html>

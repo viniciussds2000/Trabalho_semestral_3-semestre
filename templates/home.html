@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Pagina Inicial</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+
 <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <header>
@@ -26,6 +27,8 @@
         </form>
     </div>
 
+
+
     <form action="/resultado" METHOD="post">
         <label>Busca:</label>
         <input type="text" name="campo_pesquisa">
@@ -33,31 +36,27 @@
     </form>
 </header>
 <body>
-    <table border="1">
+    <table border="0">
         <h1>Top carros mais vendidos</h1>
-        <tr>
+        {% for car in carros %}
+            <tr>
+                <td>
 
-                <td>Nome</td>
-                <td>Marca</td>
-                <td>Ano </td>
-                <td>Cor</td>
-                <td>Câmbio</td>
-                <td>Preço</td>
-                <td>Placa</td>
+                    <a href="/detalhes/{{car[1]}}/{{car[7]}}">
+                        <img src={{ base_url }}{{ car[10]}} height="350" width="450">
+                    </a>
+                </td>
+                <td>
 
-                </tr>
-            {% for car in carros %}
-                <tr>
-
-                    <td>{{car[1]}}</td>
-                    <td>{{car[2]}}</td>
-                    <td>{{car[3]}}</td>
-                    <td>{{car[4]}}</td>
-                    <td>{{car[5]}}</td>
-                    <td>{{car[6]}}</td>
-                    <td>{{car[7]}}</td>
-                </tr>
-            {% endfor %}
-        </table>
+                <h2>Nome: {{car[1]}}</h2>
+                <h2>Marca: {{car[2]}}</h2>
+                <h2>Ano: {{car[3]}}</h2>
+                <h2>Cor: {{car[4]}}</h2>
+                <h2>Câmbio: {{car[5]}}</h2>
+                <h2>Preço: {{car[6]}}</h2>
+                <h2>Placa: {{car[7]}}</h2>
+            </td>
+            </tr>
+        {% endfor %}
 </body>
 </html>

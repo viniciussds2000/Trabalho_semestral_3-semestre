@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservar</title>
+</head>
+<body>
+    {% for det in detalhes%}
+    <form method="post" action="/reservado/{{det[1]}}/{{det[7]}}">
+        {% endfor %}
+        <label>Nome do comprador: </label><input type="text" name="nomec"><br>
+        <label>CPF: </label><input type="text" name="cpfc"><br>
+        <label>Telefone</label><input type="text" name="telefonec"><br>
+
+        <input type="submit", value="Confirmar dados">
+
+    </form>
+</body>
+</html>

@@ -22,15 +22,42 @@ app.config['MYSQL_DATABASE_DB'] = 'semestral3.'
 def home():
     cursor = mysql.get_db().cursor()
 
-    return render_template("home.html",detail_url='http://127.0.0.1:5000/detalhes/carro/',carros=get_top10(cursor))
+    return render_template("home.html",carros=get_top10(cursor),base_url='http://127.0.0.1:5000/upload/')
 
-@app.route('/detalhes/carro/<carros>', methods=['GET','POST'])
-def detalhes_carro(carro):
-    conn= mysql.connect()
-    cursor=conn.cursor()
-    return render_template('detalhes.html', carros=get_carro_id(cursor, numero_carro),url=call_imagem(cursor,conn,carro))
+@app.route('/detalhes/<carro>/<placa>', methods=['GET','POST'])
+def detalhes_carro(carro,placa):
+    cursor= mysql.get_db().cursor()
+    return render_template('detalhes.html',detalhes=get_detalhes(cursor,placa), base_url='http://127.0.0.1:5000/upload/')
+
+@app.route('/reservando/<carro>/<placa>', methods={'GET','POST'})
+def reservando_carro(carro,placa):
+    cursor = mysql.get_db().cursor()
+    return render_template('reserva.html',detalhes=get_detalhes(cursor,placa), base_url='http://127.0.0.1:5000/upload/')
+
+@app.route('/reservado/<carro>/<placa>', methods=['GET','POST'])
+def reservado(carro,placa):
+    if request.method == 'POST':
+        nomec=request.form.get('nomec')
+        cpfc=request.form.get('cpfc')
+        telefonec=request.form.get('telefonec')
+        reserva="1"
+
+        conn = mysql.connect()
+        cursor = conn.cursor()
 
 
+        reservar(cursor,conn,reserva,placa)
+        ad_comprador(cursor,conn,nomec,cpfc,telefonec)
+
+        cursor.close()
+        conn.close()
+
+        return render_template('incluso.html')
+    else:
+        return render_template('adm_page.html')
+
+
+    return render_template('reserva.html')
 
 @app.route('/resultado', methods=['GET','POST'])
 def resultados():
@@ -168,7 +195,7 @@ def incluindo_anuncio():
             cursor.close()
             conn.close()
 
-            return redirect(url_for('uploads_file', filename=filename))
+            return redirect(url_for('incluindo', filename=filename))
     return render_template('incluir_anuncio')
 
 @app.route('/upload/<filename>', methods=['GET','POST'])
@@ -231,55 +258,12 @@ def top_editado():
         return render_template('incluso.html')
     else:
         return render_template('adm_page.html')
-'''
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-@app.route('/upload', methods=['GET','POST'])
-def upload():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_location = os.path.join(app.config['UP_FOLDER'], filename)
-            print(file_location)
-            escaped_file_location  = file_location.replace('\\','/')
-            print(escaped_file_location)
-            file.save(os.path.join(app.config['UP_FOLDER'], filename))
-
-            conn = mysql.connect()
-            cursor = conn.cursor()
-
-            adicionar_imagem(cursor, conn, filename)
-
-            cursor.close()
-            conn.close()
-
-            return redirect(url_for('uploads_file',filename=filename))
-    return render_template('teste.html')
-
-@app.route('/upload/<filename>', methods=['GET','POST'])
-def uploads_file(filename):
-
-
-    return send_from_directory(app.config['UP_FOLDER'],
-                               filename)'''
 
 
 @app.route('/carros_reservados')
 def reservas():
     cursor = mysql.get_db().cursor()
-    return render_template('carros_reservados.html',carros=get_carros(cursor), base_url='http://127.0.0.1:5000/upload/')
+    return render_template('carros_reservados.html',carros=get_carros_reservados(cursor), base_url='http://127.0.0.1:5000/upload/')
 
 
 
