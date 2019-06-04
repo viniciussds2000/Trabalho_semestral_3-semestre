@@ -10,7 +10,13 @@ table#tabcab {
     color: white;
     width: 100%;
     text-align: center;
-    background-color: darkblue;
+    background-color: #002868;
+
+}
+
+h1#tabcab{
+    color:white;
+}
 
 }
 
@@ -40,7 +46,7 @@ footer{
     color: white;
     width: 100%;
     text-align: center;
-    background-color: darkblue;
+    background-color: #002868;
     padding-top: 5px;
     padding-bottom: 10px;
     margin-top: 50px;

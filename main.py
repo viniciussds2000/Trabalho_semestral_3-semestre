@@ -7,7 +7,7 @@ from BD import *
 
 app = Flask(__name__)
 
-UP_FOLDER = 'C:\\Users\\vinny\\PycharmProjects\\untitled\\imagens\\carros'
+UP_FOLDER = 'C:\\Users\\viniciussds2000\\PycharmProjects\\Trabalho_semestral_3-semestre\\imagens\\carros'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 mysql = MySQL()
 
@@ -15,8 +15,8 @@ mysql.init_app(app)
 
 app.config['UP_FOLDER'] = UP_FOLDER
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
-app.config['MYSQL_DATABASE_DB'] = 'semestral3.'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'semestral3'
 
 @app.route('/')
 def home():
@@ -162,6 +162,7 @@ def incluindo_anuncio():
         cambiocarro=request.form.get('cambiocar')
         preçocarro=request.form.get('preçocar')
         placacarro=request.form.get('placacar')
+        reserva="0"
         top10 = request.form.get('top_choice')
         file = request.form.get('file')
         if top10 == "Sim":
@@ -191,8 +192,7 @@ def incluindo_anuncio():
 
 
             # adicionar_imagem(cursor,conn,arquivo)
-            incluir_anuncio(cursor, conn, nomecarro, marcacarro, anocarro, corcarro, cambiocarro, preçocarro,
-                            placacarro, top10, filename)
+            incluir_anuncio(cursor, conn, nomecarro, marcacarro, anocarro, corcarro, cambiocarro, preçocarro,placacarro, top10, reserva,filename)
 
             cursor.close()
             conn.close()
