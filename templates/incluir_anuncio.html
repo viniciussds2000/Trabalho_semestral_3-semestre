@@ -10,7 +10,7 @@
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
                     <h1>Pagina do Administrador</h1>
@@ -21,64 +21,41 @@
     </div>
 </header>
 <body>
-    <h1>Carros disponiveis</h1>
-        <table border="1">
-    <tr>
-            <td>Nome</td>
-            <td>Marca</td>
-            <td>Ano </td>
-            <td>Cor</td>
-            <td>Câmbio</td>
-            <td>Preço</td>
-            <td>Placa</td>
-
-            </tr>
-        {% for car in carros %}
-            <tr>
-                <td>{{car[1]}}</td>
-                <td>{{car[2]}}</td>
-                <td>{{car[3]}}</td>
-                <td>{{car[4]}}</td>
-                <td>{{car[5]}}</td>
-                <td>{{car[6]}}</td>
-                <td>{{car[7]}}</td>
-            </tr>
-        {% endfor %}
-    </table>
+<div id="admcorpo">
     <h1>Novo Anuncio</h1>
     <form id="inclur_car", action="/anuncio_incluso", method="post" enctype=multipart/form-data>
         <p>
             <label>
                 Nome:
             </label>
-            <input type="text" name="nomecar">
+            <input type="text" placeholder="Modelo do carro" name="nomecar">
         </p>
          <p>
             <label>
                 Marca:
             </label>
-            <input type="text" name="marcacar">
+            <input type="text" placeholder="Marca do carro" name="marcacar">
         </p>
          <p>
             <label>
                 Ano:
             </label>
-            <input type="text" name="anocar">
+            <input type="text" placeholder="Ano/Ano" name="anocar">
         </p>
          <p>
             <label>
                 Cor:
             </label>
-            <input type="text" name="corcar">
+            <input type="text" placeholder="Cor do carro" name="corcar">
         </p>
          <p>
             <label>
                 Câmbio:
             </label>
-            <input type="text" name="cambiocar">
+            <input type="text" placeholder="Manual/Automatico" name="cambiocar">
         </p>
         <p>
-            
+
             <label>
                 Preço:
             </label>
@@ -87,7 +64,7 @@
             <label>
                 Placa:
             </label>
-            <input type="text" name="placacar">
+            <input type="text" placeholder="XXX-XXX" name="placacar">
         <p>
         <p>
             <label>
@@ -108,9 +85,23 @@
             <input type="submit" name="add_carbt" value="Adicionar">
         </p>
     </form>
-
-
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 </body>
+<footer>
+    <nav>
+        <h3><a href="/">Mais vendidos</a></h3>
+        <small>Vinicius Santos | Contato: (61)981008608</small><br>
+            <small>Copyright © 2019 Vinicius Santos </small>
+    </nav>
+</footer>
 </html>

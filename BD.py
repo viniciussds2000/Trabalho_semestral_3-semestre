@@ -11,7 +11,7 @@ def validar_login(cursor,login,senha):
 
 def busca(cursor,pesquisa):
     cursor.execute(f'SELECT * '
-                   f'from carros WHERE nome = "{pesquisa}" AND reserva = "0"')
+                   f'from carros WHERE nome or marca= "{pesquisa}" AND reserva = "0"')
     pesq = cursor.fetchall()
 
     return pesq
@@ -23,6 +23,7 @@ def reservar(cursor,conn,reserva,placa):
 def ad_comprador(cursor, conn,nome,cpf,telefone):
         cursor.execute(f'INSERT into `semestral3.`.`reservistas` (nome,cpf,telefone) VALUES ("{nome}","{cpf}","{telefone}")')
         conn.commit()
+
 
 def get_detalhes(cursor,placa):
     cursor.execute(f'SELECT * FROM carros WHERE placa = "{placa}"')
@@ -90,6 +91,7 @@ def get_carros_reservados(cursor):
     carros=cursor.fetchall()
 
     return carros
+
 
 
 def call_imagem(cursor,conn,carro):

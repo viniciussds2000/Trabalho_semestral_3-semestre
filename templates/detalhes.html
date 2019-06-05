@@ -3,21 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <title>Detalhes</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <style>
 
+
+header{
+    margin: -20px;
+    padding: -15px;
+
+}
+
+a:link {
+text-decoration:none;
+    color: white;
+}
+a:visited {
+text-decoration:none;
+    color: white;
+}
+a:hover {
+text-decoration:none;
+}
+
+
+header#cabecalho{
+    border-bottom:1px black solid;
+
+}
+table#tabcab {
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: darkblue;
+    padding: 5px;
+
+
+}
+
+#blocklog{
+    text-align:center;
+}
+
+table.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Hometop {
+    text-align: center;
+    margin-top: 7%;
+}
+
+#Hometop h1,h2{
+    font-family: "Ebrima";
+}
+
+#admcorpo{
+    text-align: center;
+    font-family: "Impact";
+    font-size: 25px;
+    color: white;
+    margin-top: 30px;
+    background-color: darkblue;
+    width: 35%;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    margin: auto auto -6% auto;
+
+}
+
+
+#admcorpo h1{
+    color: white;
+}
+#admpage{
+    text-align: center;
+    font-family: Ebrima;
+    font-size: 25px;
+    color: black;
+    margin: auto auto -6% auto;
+
+}
+
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    color: white;
+    text-align: center;
+    background-color: darkblue;
+    margin: -10px;
+    padding-bottom: 2%;
+
+}
+
+
+
+
+
+    </style>
 </head>
 <header id="cabecalho">
     <div id="cab">
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
                     <form action="/resultado" METHOD="post">
                     <label>Busca:</label>
-                    <input type="text" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
+                    <input type="text" size="50" name="campo_pesquisa">
+
                     </form>
                 </td>
                 <td>
@@ -46,39 +144,39 @@
     </table>
     </div>
 </header>
-
 <body>
-  <table border="1">
-        <h1>Detalhes</h1>
-            {% for detalhe in detalhes %}
-                <tr>
-                     <a href="{{ base_url }}{{ detalhe[10]}}">
-                        <img src={{ base_url }}{{ detalhe[10]}} height="200" width="200">
-                    </a>
-                    <td>{{detalhe[1]}}</td>
-                    <td>{{detalhe[2]}}</td>
-                    <td>{{detalhe[3]}}</td>
-                    <td>{{detalhe[4]}}</td>
-                    <td>{{detalhe[5]}}</td>
-                    <td>{{detalhe[6]}}</td>
-                    <td>{{detalhe[7]}}</td>
-                    <td>
+<div id="admpage">
+  <h1>Detalhes</h1>
+            <table>
+                {% for detalhe in detalhes %}
+                    <tr>
+                         <td>
+                            <a href="{{base_url}}{{detalhe[10]}}">
+                                <img src={{ base_url }}{{ detalhe[10]}} height="500" width="650">
+                            </a>
+                        </td>
+                        <td>
+                        <h3>Nome: {{detalhe[1]}}</h3>
+                        <h3>Marca: {{detalhe[2]}}</h3>
 
-                </td>
-                </tr>
+                        <h3>Ano: {{detalhe[3]}}</h3>
+                        <h3>Cor: {{detalhe[4]}}</h3>
 
-        </table>
-  <form action="/reservando/{{detalhe[1]}}/{{detalhe[7]}}" method="post">
+                        <h3>Câmbio: {{detalhe[5]}}</h3>
+                        <h3>Preço: {{detalhe[6]}}</h3>
+                        <h3>Placa: {{detalhe[7]}}</h3>
+                            <form action="/reservando/{{detalhe[1]}}/{{detalhe[7]}}" method="post">
         <input type="submit", name="reservarbt", value="Reservar">
 
   </form>
+                    </td>
+                    </tr>
 
+            </table>
+
+
+    {% endfor %}
+</div>
 </body>
-<footer>
-    <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
-            <small>Copyright © 2010 </small>
-    </nav>
-</footer>
+
 </html>

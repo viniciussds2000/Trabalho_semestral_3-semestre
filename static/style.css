@@ -1,22 +1,40 @@
 
 header{
-    margin: 0px;
+    margin: -20px;
+    padding: -15px;
+
 }
 
+a:link {
+text-decoration:none;
+    color: white;
+}
+a:visited {
+text-decoration:none;
+    color: white;
+}
+a:hover {
+text-decoration:none;
+}
+
+
 header#cabecalho{
-    border-bottom:1px darkblue solid;
+    border-bottom:1px black solid;
+
 }
 table#tabcab {
     color: white;
     width: 100%;
     text-align: center;
     background-color: darkblue;
+    padding: 5px;
+
 
 }
 
 #blocklog{
     text-align:center;
-        }
+}
 
 table.center{
     margin-left: auto;
@@ -25,26 +43,53 @@ table.center{
 
 #Hometop {
     text-align: center;
+    margin-top: 7%;
+}
+
+#Hometop h1,h2{
+    font-family: "Ebrima";
 }
 
 #admcorpo{
     text-align: center;
-    font-family: "Arial Black";
+    font-family: "Impact";
     font-size: 25px;
+    color: white;
     margin-top: 30px;
+    background-color: darkblue;
+    width: 35%;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    margin: auto auto -6% auto;
+
 }
 
+
+#admcorpo h1{
+    color: white;
+}
+#admpage{
+    text-align: center;
+    font-family: Ebrima;
+    font-size: 25px;
+    color: black;
+    margin: auto auto -6% auto;
+
+}
 
 
 footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
     color: white;
-    width: 100%;
     text-align: center;
     background-color: darkblue;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    margin-top: 50px;
-    margin-bottom: 0%;
+    margin: -10px;
+    padding-bottom: 2%;
 
 }
+
+
 

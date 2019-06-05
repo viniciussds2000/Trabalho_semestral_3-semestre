@@ -10,7 +10,7 @@
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
                     <h1>Pagina do Administrador</h1>
@@ -21,7 +21,25 @@
     </div>
 </header>
 <body>
-<h1>Modificar Top10</h1>
+<div id="admpage">
+ <form action="/top10_editado" METHOD="post">
+        <h1>Editar lista de mais vendidos</h1>
+        <label>Placa do carro</label>
+        <input type="text" name="ePlaca">
+
+        <label>Top10? :</label>
+        <select name="eTop10">
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+
+        <input type="submit" name="edit_topbt" value="Mudar">
+    </form>
+    <br>
+    <br>
+</div>
+<h1>Lista atual</h1>
+
     <table border="1">
     <tr>
             <td>Nome</td>
@@ -49,18 +67,13 @@
         {% endfor %}
     </table>
 
-    <form action="/top10_editado" METHOD="post">
-        <h1>Editar lista de mais vendidos</h1>
-        <label>Placa do carro</label>
-        <input type="text" name="ePlaca">
 
-        <label>Top10? :</label>
-        <select name="eTop10">
-            <option>Sim</option>
-            <option>Não</option>
-        </select>
-
-        <input type="submit" name="edit_topbt" value="Mudar">
-    </form>
 </body>
+<footer>
+    <nav>
+        <h3><a href="/">Mais vendidos</a></h3>
+        <small>Vinicius Santos | Contato: (61)981008608</small><br>
+            <small>Copyright © 2019 Vinicius Santos </small>
+    </nav>
+</footer>
 </html>

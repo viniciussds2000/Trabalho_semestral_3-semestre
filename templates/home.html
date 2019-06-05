@@ -5,20 +5,19 @@
     <title>Pagina Inicial</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 
-<link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <header id="cabecalho">
     <div id="cab">
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
                     <form action="/resultado" METHOD="post">
                     <label>Busca:</label>
-                    <input type="text" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
+                    <input type="text" size="50" name="campo_pesquisa">
+
                     </form>
                 </td>
                 <td>
@@ -56,7 +55,7 @@
 <body>
     <div id="Hometop">
         <table class="center">
-            <h1>Top carros mais vendidos</h1>
+            <h1>Carros mais vendidos</h1>
                 {% for car in carros %}
                 <tr>
                     <td>
@@ -72,36 +71,28 @@
                         <h2>Cor: {{car[4]}}</h2>
                         <h2>Câmbio: {{car[5]}}</h2>
                         <h2>Preço: {{car[6]}}</h2>
-                        <h2>Placa: {{car[7]}}</h2>
+                        <h2 style="color: red">Disponivel</h2>
                     </td>
+
                 </tr>
 
-             <tr>
-                    <td>
-                        <h2>Nome: {{car[1]}}</h2>
-                        <h2>Marca: {{car[2]}}</h2>
-                        <h2>Ano: {{car[3]}}</h2>
-                        <h2>Cor: {{car[4]}}</h2>
-                        <h2>Câmbio: {{car[5]}}</h2>
-                        <h2>Preço: {{car[6]}}</h2>
-                        <h2>Placa: {{car[7]}}</h2>
-                    </td>
-                 <td>
-                        <a href="/detalhes/{{car[1]}}/{{car[7]}}">
-                            <img src={{ base_url }}{{ car[10]}} height="350" width="450">
-                        </a>
-                    </td>
-                </tr>
 
             {% endfor %}
         </table>
     </div>
+<br>
+<br>
+<br>
+    <br>
+<br>
+<br>
 </body>
 <footer>
     <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
-            <small>Copyright © 2010 </small>
+        <h3><a href="/">Mais vendidos</a></h3>
+        <small>Vinicius Santos | Contato: (61)981008608</small><br>
+            <small>Copyright © 2019 Vinicius Santos </small>
     </nav>
 </footer>
+
 </html>

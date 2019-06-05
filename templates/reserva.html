@@ -3,55 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>Reservar</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <style>
+
+header{
+    margin: -20px;
+    padding: -15px;
+
+}
+
+a:link {
+text-decoration:none;
+    color: white;
+}
+a:visited {
+text-decoration:none;
+    color: white;
+}
+a:hover {
+text-decoration:none;
+}
+
+
+header#cabecalho{
+    border-bottom:1px black solid;
+
+}
+table#tabcab {
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: darkblue;
+    padding: 5px;
+
+
+}
+
+#blocklog{
+    text-align:center;
+}
+
+table.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Hometop {
+    text-align: center;
+    margin-top: 7%;
+}
+
+#Hometop h1,h2{
+    font-family: "Ebrima";
+}
+
+#admcorpo{
+    text-align: center;
+    font-family: "Impact";
+    font-size: 25px;
+    color: white;
+    margin-top: 30px;
+    background-color: darkblue;
+    width: 35%;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    margin: auto auto -6% auto;
+
+}
+
+
+#admcorpo h1{
+    color: black;
+}
+#admpage{
+    text-align: center;
+    font-family: Ebrima;
+    font-size: 25px;
+    color: black;
+    margin: auto auto -6% auto;
+
+}
+
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    color: white;
+    text-align: center;
+    background-color: darkblue;
+    margin: -10px;
+    padding-bottom: 2%;
+
+}
+
+
+
+    </style>
 </head>
 <header id="cabecalho">
     <div id="cab">
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
-                    <form action="/resultado" METHOD="post">
-                    <label>Busca:</label>
-                    <input type="text" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
-                    </form>
+                    <h1>Pagina do Administrador</h1>
                 </td>
-                <td>
-
-                    <div id="blocklog">
-                        <form id="login" action="/adm_page", method="post">
-                            <p>
-                                <label>
-                                    Login
-                                </label>
-
-                                <input type="text" name="login">
-                            </p>
-                            <p>
-                                <label>
-                                    Senha
-                                </label>
-                                <input type="password" name="senha" >
-                            </p>
-                            <input type="submit" logarbt value="Entrar">
-                        </form>
-                    </div>
-                </td>
-
-
-
-
-
-
             </td>
         </tr>
     </table>
     </div>
 </header>
 <body>
+<div id="admcorpo">
     {% for det in detalhes%}
     <form method="post" action="/reservado/{{det[1]}}/{{det[7]}}">
         {% endfor %}
@@ -62,5 +128,13 @@
         <input type="submit", value="Confirmar dados">
 
     </form>
+</div>
 </body>
+<footer>
+    <nav>
+        <h3><a href="/">Mais vendidos</a></h3>
+        <small>Vinicius Santos | Contato: (61)981008608</small><br>
+            <small>Copyright © 2019 Vinicius Santos </small>
+    </nav>
+</footer>
 </html>

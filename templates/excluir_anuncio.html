@@ -10,7 +10,7 @@
     <table id="tabcab" >
         <tr>
             <td>
-                <h1>TanqueOnly</h1>
+                <h1><a href="/">TeiqueOnly</a></h1>
             </td>
                 <td>
                     <h1>Pagina do Administrador</h1>
@@ -21,7 +21,27 @@
     </div>
 </header>
 <body>
-    <h1>Excluir carro</h1>
+
+<div id="admpage">
+    <h1>Excluir carro</h1><br>
+<form id="excluirtb", action="/anuncio_excluido", method="post">
+        <p>
+            <label>
+                Placa do carro
+            </label>
+            <input type="text" name="placacar">
+
+            <input type="submit" name="ex_anunciobt" value="Excluir">
+         </p>
+    </form>
+
+</div>
+ <br>
+    <br>
+ <br>
+    <br>
+ <br>
+    <br>
         <table border="1">
     <tr>
             <td>Nome</td>
@@ -47,15 +67,13 @@
         {% endfor %}
     </table>
 
-    <form id="excluirtb", action="/anuncio_excluido", method="post">
-        <p>
-            <label>
-                Placa do carro
-            </label>
-            <input type="text" name="placacar">
 
-            <input type="submit" name="ex_anunciobt" value="Excluir">
-         </p>
-    </form>
 </body>
+<footer>
+    <nav>
+        <h3><a href="/">Mais vendidos</a></h3>
+        <small>Vinicius Santos | Contato: (61)981008608</small><br>
+            <small>Copyright © 2019 Vinicius Santos </small>
+    </nav>
+</footer>
 </html>
