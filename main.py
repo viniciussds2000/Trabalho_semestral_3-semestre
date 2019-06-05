@@ -61,6 +61,7 @@ def reservado(carro,placa):
 
     return render_template('reserva.html')
 
+
 @app.route('/resultado', methods=['GET','POST'])
 def resultados():
     if request.method == 'POST':

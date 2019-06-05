@@ -9,6 +9,7 @@ def validar_login(cursor,login,senha):
 
     return idlogin
 
+
 def busca(cursor,pesquisa):
     cursor.execute(f'SELECT * '
                    f'from carros WHERE nome or marca= "{pesquisa}" AND reserva = "0"')
