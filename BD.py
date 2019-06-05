@@ -21,7 +21,7 @@ def reservar(cursor,conn,reserva,placa):
     conn.commit()
 
 def ad_comprador(cursor, conn,nome,cpf,telefone):
-        cursor.execute(f'INSERT into `semestral3.`.`reservistas` (nome,cpf,telefone) VALUES ("{nome}","{cpf}","{telefone}")')
+        cursor.execute(f'INSERT into `semestral3`.`reservistas` (nome,cpf,telefone) VALUES ("{nome}","{cpf}","{telefone}")')
         conn.commit()
 
 
@@ -32,22 +32,22 @@ def get_detalhes(cursor,placa):
     return detalhes
 
 def incluir_user(cursor,conn,login,senha):
-    cursor.execute(f'INSERT into `semestral3.`.`usuarios` (usuario,senha) VALUES ("{login}","{senha}")')
+    cursor.execute(f'INSERT into `semestral3`.`usuarios` (usuario,senha) VALUES ("{login}","{senha}")')
     conn.commit()
 
 def excluir_user(cursor,conn,login,senha):
-    cursor.execute(f'DELETE FROM `semestral3.`.`usuarios` WHERE usuario = "{login}" and senha = "{senha}"')
+    cursor.execute(f'DELETE FROM `semestral3`.`usuarios` WHERE usuario = "{login}" and senha = "{senha}"')
     conn.commit()
 
-def incluir_anuncio(cursor,conn,nome,marca,ano,cor,cambio,preço,placa,top10,data):
-    cursor.execute(f'INSERT into `semestral3.`.`carros` (nome,marca,ano,cor,cambio,preço,placa,top10,url) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}","{preço}","{placa}","{top10}","{data}")')
+def incluir_anuncio(cursor,conn,nome,marca,ano,cor,cambio,preço,placa,top10,reserva,data):
+    cursor.execute(f'INSERT into `semestral3`.`carros` (nome,marca,ano,cor,cambio,preço,placa,top10,reserva,url) VALUES ("{nome}","{marca}","{ano}","{cor}","{cambio}","{preço}","{placa}","{top10}","{reserva}","{data}")')
     conn.commit()
 
 
 
 
 def excluir_anuncio(cursor,conn,placa):
-    cursor.execute(f'DELETE FROM `semestral3.`.`carros` WHERE placa = "{placa}"')
+    cursor.execute(f'DELETE FROM `semestral3`.`carros` WHERE placa = "{placa}"')
     conn.commit()
 
 def get_carros(cursor):
