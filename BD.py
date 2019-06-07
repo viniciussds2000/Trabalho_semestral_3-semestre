@@ -11,8 +11,7 @@ def validar_login(cursor,login,senha):
 
 
 def busca(cursor,pesquisa):
-    cursor.execute(f'SELECT * '
-                   f'from carros WHERE nome or marca= "{pesquisa}" AND reserva = "0"')
+    cursor.execute(f'SELECT * from carros WHERE nome = "{pesquisa}" AND reserva = "0"')
     pesq = cursor.fetchall()
 
     return pesq

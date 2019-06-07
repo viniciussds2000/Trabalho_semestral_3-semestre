@@ -7,8 +7,8 @@ from BD import *
 
 app = Flask(__name__)
 
-UP_FOLDER = 'C:\\Users\\viniciussds2000\\PycharmProjects\\Trabalho_semestral_3-semestre\\imagens\\carros'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+UP_FOLDER = 'C:\\Users\\viniciussds2000\\PycharmProjects\\Trabalho_semestral3\\imagens\\carros'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','jfif'])
 mysql = MySQL()
 
 mysql.init_app(app)
@@ -181,25 +181,20 @@ def incluindo_anuncio():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file_location = os.path.join(app.config['UP_FOLDER'], filename)
-            print(filename)
-            print(file_location)
-            print(file_location)
             escaped_file_location = file_location.replace('\\', '/')
-            print(escaped_file_location)
             file.save(os.path.join(app.config['UP_FOLDER'], filename))
 
             conn = mysql.connect()
             cursor = conn.cursor()
 
 
-            # adicionar_imagem(cursor,conn,arquivo)
             incluir_anuncio(cursor, conn, nomecarro, marcacarro, anocarro, corcarro, cambiocarro, preçocarro,placacarro, top10, reserva,filename)
 
             cursor.close()
             conn.close()
 
             return redirect(url_for('incluindo', filename=filename))
-    return render_template('incluir_anuncio')
+    return render_template('incluir_anuncio.html')
 
 @app.route('/upload/<filename>', methods=['GET','POST'])
 def uploads_file(filename):

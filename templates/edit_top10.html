@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <title>Editar TOP10</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <style>
+        #tbcustom {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left:25%;
+    margin-top:7%;
+}
+#tbcustom td, #tbcustom th {
+    border: 1px solid black;
+    padding: 8px;
+
+}
+#tbcustom th {background-color: #022b70}
+#tbcustom tr {background-color: #718bb7;}
+#tbcustom td {background-color: #ddd;}
+#tbcustom tr:hover {background-color: #ddd;}
+#tbcustom th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
+
+        </style>
 </head>
 <header id="cabecalho">
     <div id="cab">
@@ -39,9 +64,8 @@
     <br>
 </div>
 
-<h1>Lista atual</h1>
-
-    <table border="1">
+<h1 style="text-align: center">Lista atual</h1>
+    <table id="tbcustom">
     <tr>
             <td>Nome</td>
             <td>Marca</td>
@@ -70,11 +94,17 @@
 
 
 </body>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <footer>
     <nav>
-        <h3><a href="/">Mais vendidos</a></h3>
-        <small>Vinicius Santos | Contato: (61)981008608</small><br>
-            <small>Copyright © 2019 Vinicius Santos </small>
+            <h3>Top 10</h3>
+            <h3>Ver todos carros</h3>
+            <small>Copyright © 2019 </small>
     </nav>
 </footer>
 </html>

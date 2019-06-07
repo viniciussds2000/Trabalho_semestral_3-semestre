@@ -68,16 +68,41 @@
                         <h2>Preço: {{car[6]}}</h2>
                         <h2>Placa: {{car[7]}}</h2>
                     </td>
+                    <tr>
+
+                    <td>
+                        <h2>Nome: {{car[1]}}</h2>
+                        <h2>Marca: {{car[2]}}</h2>
+                        <h2>Ano: {{car[3]}}</h2>
+                        <h2>Cor: {{car[4]}}</h2>
+                        <h2>Câmbio: {{car[5]}}</h2>
+                        <h2>Preço: {{car[6]}}</h2>
+                        <h2>Placa: {{car[7]}}</h2>
+                    </td>
+               <td>
+                        <a href="/detalhes/{{car[1]}}/{{car[7]}}">
+                            <img src={{ base_url }}{{ car[10]}} height="350" width="450">
+                        </a>
+                    </td>
 
             {% endfor %}
         </table>
     </div>
 </body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+
+
 <footer>
     <nav>
             <h3>Top 10</h3>
             <h3>Ver todos carros</h3>
-            <small>Copyright © 2010 </small>
+            <small>Copyright © 2019 </small>
     </nav>
 </footer>
 </html>
