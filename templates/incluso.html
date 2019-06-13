@@ -3,135 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <title>Incluido</title>
+     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <style>
-
-header{
-    margin: -20px;
-    padding: -15px;
-
+        * {
+  box-sizing: border-box;
 }
 
-a:link {
-text-decoration:none;
-    color: white;
-}
-a:visited {
-text-decoration:none;
-    color: white;
-}
-a:hover {
-text-decoration:none;
-}
-
-
-header#cabecalho{
-    border-bottom:1px black solid;
-
-}
-table#tabcab {
-    color: white;
-    width: 100%;
-    text-align: center;
-    background-color: darkblue;
-    padding: 5px;
+body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: #f2f2f2;
+  margin: -10px -10px -5px -7px;
 
 
 }
 
-#blocklog{
-    text-align:center;
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/N13e7awhgiljgescq/videoblocks-blue-abstract-background-texture-moving-digital-backdrop_bfwilfalz_thumbnail-full01.png");
+}
+.headeradm{
+    padding: 30px;
+  text-align: center;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/N13e7awhgiljgescq/videoblocks-blue-abstract-background-texture-moving-digital-backdrop_bfwilfalz_thumbnail-full01.png");
+
+}
+.headeradm h1{
+  font-size: 30px;
+  color: white;
+}
+.headeradm a{
+  text-decoration: none;
+  color: white;
 }
 
-table.center{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#Hometop {
-    text-align: center;
-    margin-top: 7%;
-}
-
-#Hometop h1,h2{
-    font-family: "Ebrima";
-}
-
-#admcorpo{
-    text-align: center;
-    font-family: "Impact";
-    font-size: 25px;
-    color: white;
-    margin-top: 30px;
-    background-color: darkblue;
-    width: 35%;
-    box-sizing: border-box;
-    padding-top: 5%;
-    padding-bottom: 4%;
-    margin: auto auto -6% auto;
+.header h1 {
+  font-size: 70px;
+  color: white;
 
 }
 
 
-#admcorpo h1{
-    color: white;
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #022b70;
 }
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-left: 380px;
+}
+.blocklog{
+  background-color: #022b70;
+  float: right;
+  padding: 20px;
+  color: white;
+  text-align:center;
+  top: 30px;
+
+}
+/* Change color on hover */
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 70%;
+}
+
+.centercolumn{
+  width: 70%;
+  text-align: left;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Fake image */
+
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 60px;
+  text-align: center;
+
+}
+.card h2{
+  margin-left: 35px;
+
+
+
+}
+.card table{
+  padding-left: 50px;
+  text-align: left;
+}
+.cardadm{
+   background-color: #022b70;
+  padding: 50px;
+  width: 350px;
+  margin-left:465px;
+  text-align: center;
+  color: White;
+
+}
+.cardadm a{
+  text-decoration: none;
+  color: white;
+
+}
+
+.blockadm{
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  background-color: #022b70;
+
+}
+.blockadm2{
+    height: 200px;
+  width: 200px;
+  text-align: center;
+  background-color: #022b70;
+}
+
 #admpage{
-    text-align: center;
-    font-family: Ebrima;
-    font-size: 25px;
-    color: black;
-    margin: auto auto -6% auto;
+  text-align: center;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 25px;
+  margin-top: 50px;
 
+}
+#admcorpo{
+  text-align: center;
+  background-color: #022b70;
+  width: 40%;
+  margin: 1% 5% 10% 30% ;
+  padding: 20px 50px 60px 50px ;
+  color: white;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+#tbcustom {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left:21%;
+    margin-top:7%;
+    border-radius: 12px;
+}
+#tbcustom td, #tbcustom th {
+    border: 1px solid black;
+    padding: 8px;
+
+}
+#tbcustom th {background-color: #022b70}
+#tbcustom tr {background-color: #718bb7;}
+#tbcustom td {background-color: white;}
+#tbcustom tr:hover {background-color: white;}
+#tbcustom th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
 }
 
 footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    color: white;
-    text-align: center;
-    background-color: darkblue;
-    margin: -10px;
-    padding-bottom: 2%;
-
+  text-align: center;
+  background-color: #022b70;
+  width: 80%;
+    height: 200px;
+  color: white;
+    padding-top: 30px;
+  margin: 200px 100px -20px 135px;
 }
-
-
-
+footer a{
+    text-decoration: none;
+    color:white;
+}
 
     </style>
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1><a href="/">TeiqueOnly</a></h1>
-            </td>
-                <td>
-                    <h1>Pagina do Administrador</h1>
-                </td>
-            </td>
-        </tr>
-    </table>
-    </div>
-</header>
-
 <body>
-<div id="admcorpo">
-    <label style="color: white">Mudança efetuada!</label><br><br>
-    <form action="/">
-        <input type="submit" name="go_menu" value="Pagina Principal">
+<div class="headeradm">
+    <h1 style="font-family: 'Six Caps', sans-serif;"><a href="/">Mudança efetuada!</a></h1>
+    </div>
+    <form action="/" style="text-align: center; padding-top: 30px">
+        <input type="submit", name="reservarbt", value="Pagina Inicial" style="border-radius: 12px; color: black;background-color: white; width: 100px;height: 50px">
     </form>
-</div>
 </body>
-
-
-<footer>
-    <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
-            <small>Copyright © 2019 </small>
-    </nav>
-</footer>
 </html>

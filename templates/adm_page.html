@@ -5,41 +5,31 @@
     <title>Pagina ADM</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1><a href="/">TeiqueOnly</a></h1>
-            </td>
-               <td>
-                    <h1>Pagina do Administrador</h1>
-                </td>
-            </td>
-        </tr>
-    </table>
-    </div>
-</header>
+
 <body>
-    <div id="admcorpo">
-        <a href="/carros_reservados">Ver carros reservados</a><br><br>
+<div class="headeradm">
+        <h1 style="font-family: 'Six Caps', sans-serif;">Pagina do Administrador</h1>
+
+    </div>
+
+<div class="topnav">
+
+</div>
+    <div class="row">
+      <div class="cardadm">
+          <div id="admpage">
+              <label><a href="/carros_reservados">Ver carros reservados</a><br><br></label>
         <a href="/edit_top10">Editar mais vendidos</a><br><br>
         <a href="/incluir_usuario">Incluir usuarios</a><br><br>
         <a href="/excluir_usuario">Excluir usuarios</a><br><br>
         <a href="/incluir_anuncio">Incluir anuncios</a><br><br>
         <a href="/excluir_anuncio">Excluir anuncios</a><br><br><br><br>
-
-
-        <form action="/"><input type="submit" value="Pagina inicial"></form>
+              <div class="button4"><form action="/"><input type="submit" value="Pagina inicial" style="border-radius: 50px"></form></div>
+          </div>
+  </div>
     </div>
 </body>
 
-<footer>
-    <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
-            <small>Copyright © 2019 </small>
-    </nav>
-</footer>
+
 
 </html>

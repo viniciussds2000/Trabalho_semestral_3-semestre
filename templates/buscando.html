@@ -4,27 +4,15 @@
     <meta charset="UTF-8">
     <title>Resultado da pesquisa</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One&display=swap" rel="stylesheet">
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-
-            <td>
-                <h1><a href="/">TeiqueOnly</a></h1>
-            </td>
-                <td>
-                    <form action="/resultado" METHOD="post">
-                    <label>Busca:</label>
-                    <input type="text" size="50" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
-                    </form>
-                </td>
-                <td>
-
-
-                    <div id="blocklog">
-                        <form id="login" action="/adm_page", method="post">
+<body>
+    <div class="header">
+        <h1 style="font-family: 'Sonsie One', cursive;, sans-serif;"><a href="/">TeiqueOnly</a></h1>
+        <p style="font-family: 'Berkshire Swash', cursive;color: white"> Você conhece, você confia.</p>
+    </div>
+    <div class="blocklog">
+        <form id="login" action="/adm_page", method="post">
                             <p>
                                 <label>
                                     Login
@@ -40,20 +28,23 @@
                             </p>
                             <input type="submit" logarbt value="Entrar">
                         </form>
-                    </div>
-                </td>
-            </td>
-        </tr>
-    </table>
     </div>
-</header>
-<body>
+<div class="topnav">
+  <a href="#"><form action="/resultado" METHOD="post">
+        <label>Busca:</label>
+        <input type="text" name="campo_pesquisa" size="55">
+      </form></a>
+</div>
+    <br>
+    <br>
+
      <table align="center">
+         <h2>Procurando por:{{pesq}}</h2>
             {% for result in consulta %}
                 <tr>
                     <td>
                         <a href="/detalhes/{{result[1]}}/{{result[7]}}">
-                            <img src={{base_url}}{{result[10]}} height="300" width="450">
+                            <img src={{base_url}}{{result[10]}} height="400" width="550">
                         </a>
                     </td>
                    <td>

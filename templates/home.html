@@ -4,27 +4,21 @@
     <meta charset="UTF-8">
     <title>Pagina Inicial</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Six+Caps&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1>TanqueOnly</h1>
-            </td>
-                <td>
-                    <form action="/resultado" METHOD="post">
-                    <label>Busca:</label>
-                    <input type="text" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
-                    </form>
-                </td>
-                <td>
 
-                    <div id="blocklog">
-                        <form id="login" action="/adm_page", method="post">
+<body>
+    <div class="header">
+        <h1 style="font-family: 'Sonsie One', cursive;, sans-serif;"><a href="/">TeiqueOnly</a></h1>
+        <p style="font-family: 'Berkshire Swash', cursive;color: white"> Você conhece, você confia.</p>
+    </div>
+    <div class="blocklog">
+        <form id="login" action="/adm_page", method="post">
                             <p>
                                 <label>
                                     Login
@@ -36,19 +30,66 @@
                                 <label>
                                     Senha
                                 </label>
-                                <input type="password" name="senha" >
+                                <input type="password" name="senha" ><br>
                             </p>
-                            <input type="submit" logarbt value="Entrar">
+                            {% if erro %}
+                                <span style="color:red">{{erro}}</span><br>
+                            {% endif %}<br>
+                            <input type="submit" logarbt value="Entrar"><br>
+
                         </form>
-                    </div>
-                </td>
-            </td>
-        </tr>
-    </table>
     </div>
-</header>
-<body>
-    <div id="Hometop">
+<div class="topnav">
+  <a href="#"><form action="/resultado" METHOD="post">
+        <label>Busca:</label>
+        <input type="text" name="campo_pesquisa" size="55">
+      </form></a>
+</div>
+    <div class="row">
+  <div class="leftcolumn">
+      {% for cars in allcars %}
+    <div class="card">
+        <table>
+            <tr>
+                <h1>{{cars[2]}}&nbsp;{{cars[1]}}</h1>
+          <td><a href="/detalhes/{{cars[1]}}/{{cars[7]}}">
+              <img src={{ base_url }}{{ cars[10]}} height="350" width="455">
+          </a>
+          </td>
+                <td>
+                        <h2>Ano: {{cars[3]}}</h2>
+                        <h2>Cor: {{cars[4]}}</h2>
+                        <h2>Câmbio: {{cars[5]}}</h2>
+                        <h2>Preço: {{cars[6]}}</h2>
+                        <h2>Placa: {{cars[7]}}</h2>
+                        <h2 style="color:red;">Disponível</h2>
+                </td>
+            </tr>
+        </table>
+    </div>
+      {% endfor %}
+  </div>
+  <div class="rightcolumn">
+
+    <div class="card">
+
+      <h3>Mais vendidos</h3>
+          <p>
+              {% for car in carros %}
+          <a href="/detalhes/{{car[1]}}/{{car[7]}}">
+              <img src={{ base_url }}{{ car[10]}} height="150" width="205">
+          </a><br><br>
+              {% endfor %}
+        </p>
+
+
+
+    </div>
+  </div>
+
+</div>
+
+    <!--<div id="Hometop">
         <table class="center">
             <h1>Top carros mais vendidos</h1>
                 {% for car in carros %}
@@ -87,21 +128,12 @@
 
             {% endfor %}
         </table>
-    </div>
+    </div>-->
 </body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-
-
 <footer>
     <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
+            <h2>TeiqueOnly</h2>
+            <h3>Você conhece, você confia.</h3>
             <small>Copyright © 2019 </small>
     </nav>
 </footer>

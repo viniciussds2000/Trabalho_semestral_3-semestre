@@ -7,7 +7,7 @@ from BD import *
 
 app = Flask(__name__)
 
-UP_FOLDER = 'C:\\Users\\viniciussds2000\\PycharmProjects\\Trabalho_semestral3\\imagens\\carros'
+UP_FOLDER = 'C:\\Users\\vinny\\PycharmProjects\\untitled\\imagens\\carros'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg','jfif'])
 mysql = MySQL()
 
@@ -15,14 +15,14 @@ mysql.init_app(app)
 
 app.config['UP_FOLDER'] = UP_FOLDER
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'semestral3'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = 'semestral3.'
 
 @app.route('/')
 def home():
     cursor = mysql.get_db().cursor()
 
-    return render_template("home.html",carros=get_top10(cursor),base_url='http://127.0.0.1:5000/upload/')
+    return render_template("home.html",allcars=get_carros(cursor),carros=get_top10(cursor),base_url='http://127.0.0.1:5000/upload/')
 
 
 
@@ -72,7 +72,7 @@ def resultados():
             return render_template('home.html')
         else:
             cursor = mysql.get_db().cursor()
-            return render_template('buscando.html',consulta=busca(cursor,pesquisa),base_url='http://127.0.0.1:5000/upload/')
+            return render_template('buscando.html',pesq=pesquisa,consulta=busca(cursor,pesquisa),base_url='http://127.0.0.1:5000/upload/')
 
     return
 
@@ -87,7 +87,7 @@ def logando():
         idlogin = validar_login(cursor,login,senha)
 
         if idlogin is None:
-            return render_template('home.html')
+            return render_template('home.html', erro="Login/senha incorretas!")
 
         else:
 

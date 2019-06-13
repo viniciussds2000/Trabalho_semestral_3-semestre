@@ -4,124 +4,163 @@
     <meta charset="UTF-8">
     <title>Detalhes</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One&display=swap" rel="stylesheet">
+
     <style>
-
-header{
-    margin: -20px;
-    padding: -15px;
-
+        * {
+  box-sizing: border-box;
 }
 
-a:link {
-text-decoration:none;
-    color: white;
-}
-a:visited {
-text-decoration:none;
-    color: white;
-}
-a:hover {
-text-decoration:none;
-}
-
-
-header#cabecalho{
-    border-bottom:1px black solid;
-
-}
-table#tabcab {
-    color: white;
-    width: 100%;
-    text-align: center;
-    background-color: #022b70;
-    padding: 5px;
+body {
+  font-family: Arial;
+  padding: 10px;
+  background-color: #f2f2f2;
+  margin: -10px -10px -5px -7px;
 
 
 }
 
-#blocklog{
-    text-align:center;
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/N13e7awhgiljgescq/videoblocks-blue-abstract-background-texture-moving-digital-backdrop_bfwilfalz_thumbnail-full01.png");
 }
 
-table.center{
-    margin-left: auto;
-    margin-right: auto;
+.header a{
+    text-decoration: none;
+    color:white;
 }
 
-#Hometop {
-    text-align: center;
-    margin-top: 7%;
+.headeradm h1{
+  font-size: 30px;
+  color: white;
+}
+.headeradm a{
+  text-decoration: none;
+  color: white;
 }
 
-#Hometop h1,h2{
-    font-family: "Ebrima";
-}
-
-
-#admcorpo{
-    text-align: center;
-    font-family: "Impact";
-    font-size: 25px;
-    color: white;
-    margin-top: 30px;
-    background-color: #022b70;
-    width: 35%;
-    box-sizing: border-box;
-    padding-top: 5%;
-    padding-bottom: 4%;
-    margin: auto auto -6% auto;
+.header h1 {
+  font-size: 45px;
+  color: white;
 
 }
 
 
-#admcorpo h1{
-    color: white;
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #022b70;
 }
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-left: 380px;
+}
+.blocklog{
+  background-color: #022b70;
+  float: right;
+  padding: 20px;
+  color: white;
+  text-align:center;
+  top: 30px;
+
+}
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 60px;
+  text-align: center;
+
+}
+.card h2{
+  margin-left: 35px;
+
+
+
+}
+.card table{
+  padding-left: 50px;
+  text-align: left;
+}
+
+.cardadm a{
+  text-decoration: none;
+  color: white;
+
+}
+
 #admpage{
-    text-align: center;
-    font-family: Ebrima;
-    font-size: 25px;
-    color: black;
-    margin: auto auto -6% auto;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 50px;
 
 }
 
 
-footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+#tbcustom td, #tbcustom th {
+    border: 1px solid black;
+    padding: 8px;
+
+}
+#tbcustom th {background-color: #022b70}
+#tbcustom tr {background-color: #718bb7;}
+#tbcustom td {background-color: white;}
+#tbcustom tr:hover {background-color: white;}
+#tbcustom th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
     color: white;
-    text-align: center;
-    background-color: #022b70;
-    margin: -10px;
-    padding-bottom: 2%;
+}
+footer{
+  text-align: center;
+  background-color: #022b70;
+  width: 80%;
+    height: 200px;
+  color: white;
+    padding-top: 30px;
+  margin: 200px 100px -20px 135px;
 
 }
-
-
-
-
+footer a{
+    text-decoration: none;
+    color:white;
+}
     </style>
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1>TanqueOnly</h1>
-            </td>
-                <td>
-                    <form action="/resultado" METHOD="post">
-                    <label>Busca:</label>
-                    <input type="text" name="campo_pesquisa">
-                    <input type="submit" name="pesquisabt" value="procurar">
-                    </form>
-                </td>
-                <td>
-
-                    <div id="blocklog">
-                        <form id="login" action="/adm_page", method="post">
+<body>
+   <div class="header">
+       <h1 style="font-family: 'Sonsie One', cursive;, sans-serif;"><a href="/">TeiqueOnly</a></h1>
+        <p style="font-family: 'Berkshire Swash', cursive;color: white"> Você conhece, você confia.</p>
+    </div>
+    <div class="blocklog">
+        <form id="login" action="/adm_page", method="post">
                             <p>
                                 <label>
                                     Login
@@ -137,24 +176,24 @@ footer{
                             </p>
                             <input type="submit" logarbt value="Entrar">
                         </form>
-                    </div>
-                </td>
-            </td>
-        </tr>
-    </table>
     </div>
-</header>
-
-<body>
+<div class="topnav">
+  <a href="#"><form action="/resultado" METHOD="post">
+        <label>Busca:</label>
+        <input type="text" name="campo_pesquisa" size="55">
+      </form></a>
+</div>
 <div id="admpage">
+    <div class="card">
 <br>
 <br>
   <table>
                 {% for detalhe in detalhes %}
+
                     <tr>
                          <td>
                             <a href="{{base_url}}{{detalhe[10]}}">
-                                <img src={{ base_url }}{{ detalhe[10]}} height="500" width="650">
+                                <img src={{ base_url }}{{ detalhe[10]}} height="400" width="550">
                             </a>
                         </td>
                         <td>
@@ -166,7 +205,7 @@ footer{
                         <h3>Preço: {{detalhe[6]}}</h3>
                         <h3>Placa: {{detalhe[7]}}</h3>
                             <form action="/reservando/{{detalhe[1]}}/{{detalhe[7]}}" method="post">
-                            <input type="submit", name="reservarbt", value="Reservar">
+                            <input type="submit", name="reservarbt", value="Reservar" style="border-radius: 12px; color: white;background-color: black; width: 100px;height: 50px">
                             </form>
                             {% endfor %}
                     </td>
@@ -174,13 +213,15 @@ footer{
                 
             </table>
 </div>
+</div>
 </body>
 
 <footer>
     <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
+            <h2>TeiqueOnly</h2>
+            <h3><a href="/">Pagina inicial</a></h3>
             <small>Copyright © 2019 </small>
     </nav>
 </footer>
+</html>
 </html>

@@ -6,25 +6,21 @@
     <title>Carros Reservados</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1><a href="/">TeiqueOnly</a></h1>
-            </td>
-                <td>
-                    <h1>Pagina do Administrador</h1>
-                </td>
-            </td>
-        </tr>
-    </table>
-    </div>
-</header>
+
 <body>
-    <div id="admpage">
-        <h1>Carros Reservados</h1>
-            <table>
+<div class="headeradm">
+    <h1 style="font-family: 'Six Caps', sans-serif;"><a href="/adm_page">Pagina do Administrador</a></h1>
+        <p style="color: white">Carros Reservados</p>
+
+    </div>
+
+<div class="topnav">
+
+</div>
+      <div class="centercolumn">
+          <div id="admpage">
+
+            <table id="tableadm">
                 {% for car in carros %}
                     <tr>
                          <td>
@@ -39,14 +35,16 @@
                         <h3>Cor: {{car[4]}}</h3>
                         <h3>Câmbio: {{car[5]}}</h3>
                         <h3>Preço: {{car[6]}}</h3>
-                        <h3>Placa: {{car[7]}}</h3>
+                        <h3 style="color: red">Reservado</h3>
                     </td>
                     </tr>
+                <br>
                 {% endfor %}
+
             </table>
+      </div>
     </div>
 </body>
-
 <br>
 <br>
 <br>
@@ -58,7 +56,6 @@
 <br><br>
 
 <br>
-
 <footer>
     <nav>
             <h3>Top 10</h3>

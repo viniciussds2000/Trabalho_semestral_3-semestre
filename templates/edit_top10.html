@@ -4,51 +4,16 @@
     <meta charset="UTF-8">
     <title>Editar TOP10</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <style>
-        #tbcustom {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 50%;
-    margin-left:25%;
-    margin-top:7%;
-}
-#tbcustom td, #tbcustom th {
-    border: 1px solid black;
-    padding: 8px;
 
-}
-#tbcustom th {background-color: #022b70}
-#tbcustom tr {background-color: #718bb7;}
-#tbcustom td {background-color: #ddd;}
-#tbcustom tr:hover {background-color: #ddd;}
-#tbcustom th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    color: white;
-}
-
-        </style>
 </head>
-<header id="cabecalho">
-    <div id="cab">
-    <table id="tabcab" >
-        <tr>
-            <td>
-                <h1><a href="/">TeiqueOnly</a></h1>
-            </td>
-                <td>
-                    <h1>Pagina do Administrador</h1>
-                </td>
-            </td>
-        </tr>
-    </table>
-    </div>
-</header>
 <body>
+<div class="headeradm">
+    <h1 style="font-family: 'Six Caps', sans-serif;"><a href="/adm_page">Pagina do Administrador</a></h1>
+        <p style="color: white">Editar carros mais vendidos</p>
+
+    </div>
 <div id="admpage">
  <form action="/top10_editado" METHOD="post">
-        <h1>Editar lista de mais vendidos</h1>
         <label>Placa do carro</label>
         <input type="text" name="ePlaca">
 
@@ -58,7 +23,7 @@
             <option>Não</option>
         </select>
 
-        <input type="submit" name="edit_topbt" value="Mudar">
+        <input type="submit" value="Mudar">
     </form>
     <br>
     <br>
@@ -67,15 +32,15 @@
 <h1 style="text-align: center">Lista atual</h1>
     <table id="tbcustom">
     <tr>
-            <td>Nome</td>
-            <td>Marca</td>
-            <td>Ano </td>
-            <td>Cor</td>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Ano </th>
+            <th>Cor</th>
 
-            <td>Câmbio</td>
-            <td>Preço</td>
-            <td>Placa</td>
-            <td>Top 10? 0=Não/1=Sim</td>
+            <th>Câmbio</th>
+            <th>Preço</th>
+            <th>Placa</th>
+            <th>Top 10? 0=Não/1=Sim</th>
 
             </tr>
         {% for car in carros %}
@@ -100,11 +65,5 @@
 <br>
 <br>
 
-<footer>
-    <nav>
-            <h3>Top 10</h3>
-            <h3>Ver todos carros</h3>
-            <small>Copyright © 2019 </small>
-    </nav>
-</footer>
+
 </html>
